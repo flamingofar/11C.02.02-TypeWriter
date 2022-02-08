@@ -12,8 +12,10 @@ function setup() {
 }
 
 function init() {
+	let ranTime = Math.floor(Math.random() * 500) + 1;
+	console.log(ranTime);
 	if (count < text.length) {
-		setTimeout(loopFunc, 500);
+		setTimeout(loopFunc, ranTime);
 	}
 }
 
