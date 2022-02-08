@@ -4,7 +4,7 @@
 const typeWriter = document.querySelector(".typewritten");
 const keySoundOne = document.querySelector("#typekey1");
 const keySoundTwo = document.querySelector("#typekey2");
-const spaceSound = document.querySelector("#typelast");
+const spaceSound = document.querySelector("#typespace");
 const returnSound = document.querySelector("#typereturn");
 
 //Modal
@@ -39,7 +39,7 @@ function setup() {
 }
 
 function init() {
-	let ranTime = Math.floor(Math.random() * 500) + 1;
+	let ranTime = Math.floor(Math.random() * 3 + 3) * 100;
 	// console.log(ranTime);
 	if (count < text.length) {
 		setTimeout(loopFunc, ranTime);
@@ -47,12 +47,16 @@ function init() {
 }
 
 function loopFunc() {
+	let rand = Math.floor(Math.random() * 2) + 1;
 	if (text.charAt(count) === " ") {
 		console.log("This is a space");
 		spaceSound.play();
 	} else {
-		keySoundOne.play();
-		console.log(`This is a letter: ${text.charAt(count)}`);
+		if (rand === 1) {
+			keySoundOne.play();
+		} else {
+			keySoundTwo.play();
+		}
 	}
 	typeWriter.innerHTML += `${text.charAt(count)}`;
 	count++;
