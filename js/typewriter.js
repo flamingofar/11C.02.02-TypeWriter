@@ -23,7 +23,7 @@ function setup() {
 	disableBtn.addEventListener("click", () => {
 		document.querySelectorAll("audio").forEach((el) => {
 			el.pause();
-			el.mute;
+			el.muted = true;
 		});
 		modal.classList.toggle("hidden");
 		init();
@@ -31,7 +31,7 @@ function setup() {
 	enableBtn.addEventListener("click", () => {
 		document.querySelectorAll("audio").forEach((el) => {
 			el.play();
-			el.unmute;
+			el.muted = false;
 		});
 		modal.classList.toggle("hidden");
 		init();
